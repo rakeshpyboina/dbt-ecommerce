@@ -31,6 +31,12 @@ clean-targets:         # directories to be removed by `dbt clean`
 # files using the `{{ config(...) }}` macro.
 models:
   dbt_ecommerce:
-    # Config indicated by + and applies to all files under models/example/
-    example:
-      +materialized: view
+    staging:
+      +schema: staging
+      +materialized: view  # views would be suffiecient on raw data. may be we filter required columns.
+    intermediate:
+      +schema: intermediate
+      +materialized: view  # this is intermediate layer where we apply all transformation. views would be sufficient.
+    marts:
+      +schema: marts
+      +materialized: table # this is the end layer from were downstream consumes. Need tables.
