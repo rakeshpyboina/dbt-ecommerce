@@ -1,0 +1,3 @@
+{
+    "dbt.dbtPythonPathOverride": "/Users/rakesh/projects/dbt-ecommerce/dbt-env/bin/python3"
+}
